@@ -4,7 +4,6 @@ import { authRoutes } from "./auth";
 import { dataRoutes } from './data'
 import { projectRoutes } from "./project";
 
-
 export const routers: Router[] = [
     ...userRoutes, 
     ...authRoutes, 

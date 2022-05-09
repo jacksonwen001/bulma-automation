@@ -1,4 +1,4 @@
-import { projects } from "../data/projectData";
+import { projects, collectionProjects } from "../data/projectData";
 import { Handler } from "../types";
 
 export const getProjects: Handler = (req, res) => {
@@ -21,4 +21,8 @@ export const getProjects: Handler = (req, res) => {
         });
     }
     return res.status(200).json(result); 
+}
+
+export const getCollectionProjects: Handler = (req, res) => {
+    return res.status(200).json(collectionProjects) 
 }

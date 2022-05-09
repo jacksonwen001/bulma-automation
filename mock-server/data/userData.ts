@@ -67,7 +67,8 @@ export const roles = [
             'automation:api:view', 
             'data:index:view', 
             'data:index.edit',
-            'automation:selenoid:view'
+            'automation:selenoid:view',
+            'navigation:index:view'
         ], 
     },
     {

@@ -68,6 +68,15 @@ const constantUrl = [{
   children: appRoutes
 },
 {
+  path: '/navigation', 
+  name: 'navigation', 
+  meta: {
+      hidden: true, 
+      permission: 'navigation:index:view'
+  }, 
+  component: () => import('@/views/nav/index.vue')
+}, 
+{
   path: '/:pathMatch(.*)*',
   name: 'not found',
   component: () => import('@/views/error/404.vue')
