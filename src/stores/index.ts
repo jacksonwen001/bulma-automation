@@ -1,13 +1,14 @@
 import { createPinia } from "pinia"
+import useMenuStore from "./menu";
 import tabStore from "./tab";
-import { userStore, roleStore, menuStore } from "./user";
-
+import  useUserStore  from './user'; 
+import useRoleStore from './role'; 
 
 const pinia = createPinia(); 
 export { 
     tabStore,
-    userStore,
-    roleStore,  
-    menuStore,
+    useUserStore, 
+    useMenuStore, 
+    useRoleStore
 }
 export default pinia

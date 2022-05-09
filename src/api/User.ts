@@ -1,13 +1,11 @@
-import { Request } from "@/utils/Request";
-import type { LoginData } from "./data/LoginData";
-import type { SearchUserData } from "./data/SearchUser";
+import { instance as api }  from "@/utils/RequestUtil"
+import type { LoginData, SearchUserData } from "./Types"
 
 /**
- * @author jackson
- * @description 获取 User 信息的 API
+ * 登录
+ * @param data 
+ * @returns 
  */
-let api = new Request().getInstance() 
-
 export function login(data: LoginData) {
     return api({
         url: "/login", 
@@ -16,14 +14,22 @@ export function login(data: LoginData) {
     })
 }
 
+export function isTokenValid(token: string) {
+    return api({
+        url: '/isTokenValid', 
+        method: 'post', 
+        data: {token}
+    })
+}
+
 /**
  * 登出
  */
-export function logout(id:number) {
+ export function logout(name: string) {
     return api({
         url: "/logout", 
         method: 'post',
-        params: { id } 
+        data: { name } 
     })
 }
 
@@ -32,14 +38,13 @@ export function logout(id:number) {
  * @param username 
  * @returns 
  */
-export function getUserInfo(username: string) {
+export function getUserInfo(id: string) {
     return api({
-        url: '/userInfo', 
-        method: 'post', 
-        data: {username}
+        url: '/users', 
+        method: 'get', 
+        params: {id}
     })
 }
-
 
 /**
  * 获取用户权限 
@@ -48,7 +53,7 @@ export function getUserInfo(username: string) {
  */
 export function getPermission(username: string) {
     return api({
-        url: '/userPermission', 
+        url: '/user/permissions', 
         method: 'post', 
         data: {username}
     })

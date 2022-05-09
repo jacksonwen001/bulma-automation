@@ -1,9 +1,10 @@
 export interface MenuState {
     path:string, 
     children: MenuState[], 
-    title: string 
+    title: string, 
+    order: number
 }
 
-export interface Menus {
+export interface MenuList {
     menus: MenuState[]
 }

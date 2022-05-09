@@ -25,20 +25,20 @@
 </template>
 <script setup lang="ts">
 
-import { userStore } from '@/stores';
-import { getToken } from '@/utils/session';
+import { useUserStore } from '@/stores';
+import { getToken } from '@/utils/LocalStorageUtil';
 import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
 
 import { useRouter } from 'vue-router';
 
-let user = userStore()
+let user = useUserStore()
 let token = getToken()
 const router = useRouter()
 
 const logout = async () => {
     if (token) {
-        await user.logout(token.id!)
+        await user.logout(token.username!)
 
     } else {
         ElMessage.error("未登录，请重新登录")

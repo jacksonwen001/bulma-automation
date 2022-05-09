@@ -5,11 +5,9 @@ import 'element-plus/dist/index.css'
 
 import App from "./App.vue";
 import router from "./router";
-import "./router/guard"
-
 import * as Icons from '@element-plus/icons-vue'
 
-
+import './permission'
 
 const app = createApp(App);
 

@@ -1,6 +1,3 @@
 <template>
-    <div>
-        自动化 
-        
-    </div>
+   <router-view></router-view>
 </template>

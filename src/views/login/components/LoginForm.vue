@@ -27,13 +27,12 @@
 import { reactive, ref } from 'vue';
 import type { FormInstance } from 'element-plus';
 import { useRouter } from 'vue-router';
-import { menuStore, userStore } from '@/stores';
+import { useUserStore } from '@/stores';
+import { setToken } from '@/utils/LocalStorageUtil';
 
-import { getMenusByPermission } from '@/router/url'
-import { setMenus, setToken } from '@/utils/session';
 
 const router = useRouter()
-const user = userStore()
+const usertore = useUserStore()
 
 const loginFormRef = ref<FormInstance>()
 // 表单数据对象
@@ -72,7 +71,7 @@ const submitForm = async (formElem: FormInstance | undefined) => {
     })
 
     // 用户登录 
-    let res = await user.login(loginForm)
+    let res = await usertore.signIn(loginForm)
 
     if (res) {
         let userObj = res.data

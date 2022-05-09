@@ -19,10 +19,10 @@
     </el-menu>
 </template>
 <script lang="ts" setup>
-import { menuStore } from '@/stores';
-import { computed } from 'vue';
-let menu = menuStore()
-const menus = computed(() => menu.menusInfo)
+import { useMenuStore } from '@/stores';
+import { computed } from '@vue/reactivity';
+const menuStore = useMenuStore()
+const menus = computed(() => menuStore.menuList.sort((a,b) => a.order - b.order))
 
 </script>
 <style scoped lang="less">

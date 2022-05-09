@@ -72,7 +72,7 @@
     </div>
 </template>
 <script setup lang="ts">import { ElMessage, type FormInstance, type UploadUserFile } from 'element-plus';
-import { reactive, ref, computed, onMounted } from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 import CreateScenarioDialog from './components/CreateScenario.vue';
 import { getScenarios } from '@/api/Scenario'
 import { useRouter } from 'vue-router';
