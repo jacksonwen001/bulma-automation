@@ -1,5 +1,5 @@
 export default  {
-    path: '/testcase',
+    path: '/project/testcase',
     name: 'testcase',
     component: () => import('@/views/testcase/index.vue'), 
     meta: {

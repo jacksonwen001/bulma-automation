@@ -1,5 +1,5 @@
 export default {
-    path: '/data',
+    path: '/project/data',
     name: 'data',
     meta: {
         title: '造数中心',
@@ -9,7 +9,7 @@ export default {
     component: () => import('@/views/data/index.vue'), 
     children: [ 
         {
-            path: '/data/index',
+            path: '/project/data/index',
             name: 'index', 
             meta: {
                 title: '造数中心',
@@ -18,7 +18,7 @@ export default {
             component: () => import('@/views/data/index.vue')
         },
         {
-            path: '/data/edit',
+            path: '/project/data/edit',
             name: 'dataEdit',
             meta: {
                 title: '修改',

@@ -12,7 +12,7 @@ const useMenuStore = defineStore('menu', {
     }, 
     actions: {
         setMenus(state: MenuState[]){
-            console.log(state)
+            // console.log(state)
             // this.push(...state)
             this.menus = state
 

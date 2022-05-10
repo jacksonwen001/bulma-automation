@@ -8,7 +8,6 @@ import type { UserInfoState } from "./Types";
 
 const useUserStore = defineStore('useUserStore', {
     state: (): UserInfoState => ({
-         
         id: undefined,  
         name: undefined, 
         avatar: undefined, 

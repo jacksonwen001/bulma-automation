@@ -1,12 +1,12 @@
 import { createPinia } from "pinia"
 import useMenuStore from "./menu";
-import tabStore from "./tab";
+import useTabStore from "./tab";
 import  useUserStore  from './user'; 
 import useRoleStore from './role'; 
 
 const pinia = createPinia(); 
 export { 
-    tabStore,
+    useTabStore,
     useUserStore, 
     useMenuStore, 
     useRoleStore

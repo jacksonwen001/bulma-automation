@@ -1,56 +1,71 @@
 <template>
-    <el-container>
-        <el-header class="layout-header">
-            <headerComponent />
-        </el-header>
-        <el-main class="layout-container">
-            <el-row>
-                <el-col>
-                    <el-space wrap>
-                        <el-card>
-                            测试情况
-                        </el-card>
-                        <el-card>
-                            测试项目
-                        </el-card>
-                    </el-space>
-                </el-col>
-            </el-row>
+    <el-row>
+        <h1><span class="title"></span> 所有模块 </h1>
+    </el-row>
+    <el-row>
+        <el-col>
+            <el-space wrap>
+                <el-card>
+                    <div class="avatar">
+                        <el-avatar></el-avatar>
+                        <div class="desc">
+                            项目1
+                        </div>
+                        <div class="operation">
+                            <el-button>进入项目</el-button>
+                        </div>
+                    </div>
 
-            <el-divider />
-            <el-row>
-                <el-col>
-                    <el-space wrap>
-                        <el-card @click="enterProject">
-                            <el-avatar size="small" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
-                            测试项目1
-                        </el-card>
-                        <el-card>
-                            测试项目2
-                        </el-card>
-                        <el-card>
-                            测试项目3
-                        </el-card>
-                        <el-card>
-                            测试项目4
-                        </el-card>
-                    </el-space>
-                </el-col>
-            </el-row>
-            <el-row>
-                <el-col>
-                    <el-link type="primary" @clikc="getMoreProjects"> >>>>>>>>>>>>>>>>> 查看更多项目 </el-link>
-                </el-col>
-            </el-row>
+                </el-card>
 
-            <el-divider />
-        </el-main>
-    </el-container>
+            </el-space>
+        </el-col>
+    </el-row>
+
+    <el-row>
+        <el-divider />
+
+    </el-row>
+    <el-row>
+        <h1><span class="title"></span> 收藏的项目</h1>
+    </el-row>
+    <el-row>
+        <el-col>
+            <el-space wrap>
+                <el-card >
+                    <div class="avatar">
+                        <el-avatar></el-avatar>
+                        <div class="desc">
+                            项目1
+                        </div>
+                    </div>
+                    <div class="operation">
+                        <el-button @click="enterProject">进入项目</el-button>
+                        <el-button>取消收藏</el-button>
+                    </div>
+                </el-card>
+            </el-space>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col>
+            <el-link type="primary" :underline="false" @clikc="getMoreProjects"> >>>>>>>>>>>>>>>>> 查看更多或者创建项目 </el-link>
+        </el-col>
+    </el-row>
+
 
 </template>
 <script setup lang="ts">
-import headerComponent from '@/layout/components/Header.vue'
+import { onMounted } from 'vue';
 
+
+const fetchCollectionProject = async () => {
+
+}
+
+onMounted(() => {
+
+})
 const getMoreProjects = () => {
 
 }
@@ -60,12 +75,34 @@ const enterProject = () => {
 </script>
 <style lang="less" scoped>
 .el-card {
-    cursor: pointer
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .avatar {
+        text-align: center;
+        .el-avatar {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+
 }
-.layout-header {
-    border-bottom: 1px solid #c1c0bf;
-    box-shadow: #11100f;
+
+.title {
+    width: 10px;
+    height: 30px;
+    display: inline-block;
+    background-color: rgb(9, 181, 161);
+    vertical-align: middle;
 }
+
+.el-row {
+    line-height: 400%
+}
+
 
 .layout-container {
     width: 80%;

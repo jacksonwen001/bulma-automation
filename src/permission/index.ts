@@ -1,8 +1,9 @@
 import settings from "@/config/settings";
 import router from "@/router";
-import appRoutes from "@/router/routes";
+import appRoutes from "@/router/projects";
 import { useMenuStore, useRoleStore, useUserStore } from "@/stores";
 import { getToken } from "@/utils/LocalStorageUtil";
+import { setRouteEmitter } from "@/utils/RouterListener";
 
 /**
  * 全局的权限守护函数 
@@ -44,14 +45,16 @@ router.beforeEach(async (to, from, next) => {
         await roleStore.getPermission(token.username!)
     }
     
-    console.log(role.permissions)
+    // console.log(role.permissions)
 
     // 没有权限， 统一跳转到 403 页面。从安全层面上也要这么做， 防止路径遍历猜测 
     if (role?.permissions?.includes(to.meta.permission!)) {
         const menuStore = useMenuStore()
         const allMenus = menuStore.getMenus(appRoutes, role.permissions)
         menuStore.setMenus(allMenus)
-        console.log(menuStore.menuList)
+        setRouteEmitter(to)
+
+        // console.log(menuStore.menuList)
         return next()
     } else {
         return next({

@@ -11,14 +11,10 @@ const formatTag = (route: RouteLocationNormalized): TagProps => {
         query
     }
 }
-const tabStore = defineStore('tabBar', {
+const useTabStore = defineStore('tabBar', {
     state: (): TabBarState => ({
         cacheTabList: new Set(), 
-        tagList: [{
-            title: 'menu.dashboard.index',
-            name: 'index', 
-            fullPath: '/dashboard/index'
-        }]
+        tagList: []
     }), 
     getters: {
         getTabList(): TagProps[] {
@@ -39,4 +35,4 @@ const tabStore = defineStore('tabBar', {
         }
     }
 })
-export default tabStore
+export default useTabStore

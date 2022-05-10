@@ -77,7 +77,7 @@ const submitForm = async (formElem: FormInstance | undefined) => {
         let userObj = res.data
         setToken(userObj)
         router.push({
-            name: 'dashboard'
+            name: 'navigation'
         })
     }
 }

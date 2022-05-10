@@ -8,6 +8,7 @@
             <asideComponent />
         </el-aside>
         <el-main class="layout-container">
+            <tabCompoent />
             <mainComponent />
         </el-main>
         </el-container>
@@ -18,6 +19,7 @@
 import headerComponent from  './components/Header.vue'
 import mainComponent from './components/Main.vue'
 import asideComponent from './components/Aside.vue'
+import tabCompoent from './components/Tab.vue'
 
 </script>
 <style scoped>

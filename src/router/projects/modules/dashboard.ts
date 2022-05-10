@@ -1,5 +1,5 @@
 export default {
-    path: '/dashboard',
+    path: '/project/dashboard',
     name: 'dashboard',
     meta: {
         title: "首页",

@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Layout from '@/layout/index.vue'
-import appRoutes from "./routes";
+import overview from '@/layout/overview.vue'
+
+import appRoutes from "./projects";
+import overviewRoutes from "./overview";
 
 const constantUrl = [{
   path: '/login',
@@ -60,7 +63,7 @@ const constantUrl = [{
 },
 
 {
-  path: '/',
+  path: '/project',
   component: Layout,
   meta: {
     permission: 'dashboard:index:view',
@@ -68,13 +71,12 @@ const constantUrl = [{
   children: appRoutes
 },
 {
-  path: '/navigation', 
-  name: 'navigation', 
+  path: '/', 
+  component: overview, 
   meta: {
-      hidden: true, 
-      permission: 'navigation:index:view'
+    permission: 'project:index.view'
   }, 
-  component: () => import('@/views/nav/index.vue')
+  children: overviewRoutes
 }, 
 {
   path: '/:pathMatch(.*)*',
@@ -85,7 +87,7 @@ const constantUrl = [{
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: constantUrl
-    
+
 });
 
 export default router;

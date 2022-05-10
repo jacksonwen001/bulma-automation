@@ -54,6 +54,7 @@ function showMenu() {
 }
 </script>
 <style scoped lang="less">
+
 .navbar {
     display: flex; 
     flex-direction: row;

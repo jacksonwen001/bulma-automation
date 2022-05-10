@@ -1,5 +1,5 @@
 export default  {
-    path: '/automation',
+    path: '/project/automation',
     name: 'automation',
     meta: {
         title: '自动化测试',
@@ -9,7 +9,7 @@ export default  {
     component: () => import('@/views/automation/index.vue'),
     children: [
         {
-            path: '/automation/dashboard',
+            path: '/project/automation/dashboard',
             name: 'automation-dashboard',
             meta: {
                 title: '首页',
@@ -18,7 +18,7 @@ export default  {
             component: () => import('@/views/automation/dashboard.vue')
         },
         {
-            path: '/automation/selenoid',
+            path: '/project/automation/selenoid',
             name: 'Selenoid UI Automation',
             meta: {
                 title: 'Selenoid',
@@ -27,7 +27,7 @@ export default  {
             component: () => import('@/views/automation/selenoidUI.vue')
         },
         {
-            path: '/automation/ui',
+            path: '/project/automation/ui',
             name: 'UI Automation',
             meta: {
                 title: 'Web 前端自动化测试',
@@ -36,7 +36,7 @@ export default  {
             component: () => import('@/views/automation/UI.vue'),
         },
         {
-            path: '/automation/api',
+            path: '/project/automation/api',
             name: 'API Automation',
             meta: {
                 title: 'API 自动化测试',
