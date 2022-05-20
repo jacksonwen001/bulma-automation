@@ -2,12 +2,14 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import '@toast-ui/editor/dist/toastui-editor.css'; // Editor's Style
 
 import App from "./App.vue";
 import router from "./router";
-import * as Icons from '@element-plus/icons-vue'
+import * as Icons from '@element-plus/icons-vue'; 
+import './plugins';
+import '@/utils/interceptor';
 
-import './permission'
 
 const app = createApp(App);
 
@@ -17,7 +19,6 @@ Object.keys(Icons).forEach(key => {
 })
 
 app.use(createPinia());
-
 app.use(router);
 app.use(ElementPlus)
 app.mount("#app");

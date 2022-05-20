@@ -1,17 +1,16 @@
 {
-  "name": "aot",
+  "name": "backoffice",
+  "private": true,
   "version": "0.0.0",
   "scripts": {
-    "mock": "nodemon --exec ts-node --watch mock-server --ext ts mock-server/index.ts",
+    "mock": "nodemon --exec ts-node --watch mock --ext ts mock/index.ts",
     "dev": "vite --config ./config/vite.config.dev.ts",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview --port 5050",
-    "test:unit": "vitest --environment jsdom",
-    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
+    "@toast-ui/editor": "^3.1.7",
     "axios": "^0.26.1",
     "echarts": "^5.3.2",
     "element-plus": "^2.1.10",

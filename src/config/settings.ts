@@ -1,13 +1,7 @@
 const settings = {
-    // URL 白名单, 基本上是固定的， 也不会改变 
-    whiteUrlList: ['/register',
-    '/login',
-        '/test',
-        '/404',
-        '/403',
-        '/401',
-        '/500'
-    ]
+    keepMaxNum: 10, 
+    whiteUrls:  ['/login', '/404', '/500', '/403'], 
+    errorCodes: [4001,]
 }
 
-export default settings
+export default settings 

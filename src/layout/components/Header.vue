@@ -1,14 +1,13 @@
 <template>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar">
         <div class="navbar-brand">
             <router-link to="/" class="navbar-item">
                 <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
             </router-link>
         </div>
-
         <div class="navbar-end">
             <div class="navbar-item ">
-                <el-dropdown ref="dropdown1" trigger="contextmenu" style="margin-right: 30px; cursor: pointer;">
+                <el-dropdown ref="userProfile" trigger="contextmenu" style="margin-right: 30px; cursor: pointer;">
                     <el-avatar fit="fill" shape="circle" @mouseenter="showMenu"
                         src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80" />
                     <template #dropdown>
@@ -19,48 +18,46 @@
                 </el-dropdown>
             </div>
         </div>
-
-    </nav>
-
+    </div>
 </template>
 <script setup lang="ts">
-
-import { useUserStore } from '@/stores';
-import { getToken } from '@/utils/LocalStorageUtil';
+import { useUserStore } from '@/store';
 import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
-
 import { useRouter } from 'vue-router';
 
-let user = useUserStore()
-let token = getToken()
+const userStore = useUserStore()
+const userProfile = ref();
 const router = useRouter()
+function showMenu() {
+    userProfile.value.handleOpen()
+}
 
 const logout = async () => {
-    if (token) {
-        await user.logout(token.username!)
+    const res = await userStore.logout()
+    if (res) {
+        ElMessage.success(res.message!)
+        console.log('logout ====')
 
-    } else {
-        ElMessage.error("未登录，请重新登录")
+        console.log(res)
+        router.push({
+            name: 'Login'
+        })
+    }else{
+        console.log(res)
+
     }
-    router.push({
-        name: 'login'
-    })
-}
-
-const dropdown1 = ref()
-function showMenu() {
-    dropdown1.value.handleOpen()
 }
 </script>
-<style scoped lang="less">
-
+<style lang="less" scoped>
 .navbar {
-    display: flex; 
+    display: flex;
     flex-direction: row;
+
     .navbar-brand {
-        flex:1; 
+        flex: 1;
         line-height: 100%;
+
         a {
             text-decoration: none;
             color: black;
@@ -78,4 +75,4 @@ function showMenu() {
     }
 
 }
-</style>
+</style> 

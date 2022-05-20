@@ -27,8 +27,8 @@
 import { reactive, ref } from 'vue';
 import type { FormInstance } from 'element-plus';
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/stores';
-import { setToken } from '@/utils/LocalStorageUtil';
+import { useUserStore } from '@/store';
+import { setToken } from '@/utils/token';
 
 
 const router = useRouter()
@@ -72,12 +72,10 @@ const submitForm = async (formElem: FormInstance | undefined) => {
 
     // 用户登录 
     let res = await usertore.signIn(loginForm)
-
     if (res) {
-        let userObj = res.data
-        setToken(userObj)
+        setToken(res)
         router.push({
-            name: 'navigation'
+            name: 'Dashboard'
         })
     }
 }

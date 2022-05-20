@@ -1,34 +1,41 @@
 <template>
-    <el-container>
-        <el-header class="layout-header">
-            <headerComponent />
-        </el-header>
+    <div class="common-layout">
         <el-container>
-        <el-aside width="200px">
-            <asideComponent />
-        </el-aside>
-        <el-main class="layout-container">
-            <tabCompoent />
-            <mainComponent />
-        </el-main>
+            <el-header>
+                <Header />
+            </el-header>
+
+            <el-container>
+                <el-aside width="200">
+                    <Asider />
+                </el-aside>
+                <el-main>
+                    <Tab />
+                    <Main />
+                </el-main>
+            </el-container>
         </el-container>
-       
-    </el-container>
+    </div>
 </template>
 <script setup lang="ts">
-import headerComponent from  './components/Header.vue'
-import mainComponent from './components/Main.vue'
-import asideComponent from './components/Aside.vue'
-import tabCompoent from './components/Tab.vue'
+import Header from '@/layout/components/Header.vue';
+import Asider from '@/layout/components/Asider.vue';
+import Main from '@/layout/components/Main.vue';
+import Tab from './components/Tab.vue';
 
 </script>
-<style scoped>
-    .layout-header{
-        border-bottom: 1px solid #c1c0bf;
-        box-shadow: #11100f;
-    }
-    .layout-container {
-        background-color: rgba(229,230,235);
-        height: 100%; 
-    }
+<style lang="less" scoped>
+.el-aside {
+    height: 100vh;
+}
+
+.el-header {
+    border-bottom: 1px solid #c1c0bf;
+    box-shadow: #11100f;
+}
+
+.el-main {
+    background-color: rgba(229, 230, 235);
+    height: 100%;
+}
 </style>
