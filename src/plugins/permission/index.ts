@@ -6,13 +6,13 @@ import { settings } from '@/config';
 import { getToken } from '@/utils/token';
 
 router.beforeEach(async (to, from, next) => {
-    
+
     const permissions = [
         'dashboard:index:view',
     ]
     // 获取当前路径 
-    let path = to.path; 
-    if(settings.whiteUrls.includes(path)){
+    let path = to.path;
+    if (settings.whiteUrls.includes(path)) {
         return next()
     }
 
@@ -36,13 +36,13 @@ router.beforeEach(async (to, from, next) => {
     }
 
     const userStore = useUserStore()
-    const roleStore = useRoleStore() 
-    const role = roleStore.role; 
-    if(!role.name){
+    // await userStore.getUserInfo(token.id!) 
+    const roleStore = useRoleStore()
+    const role = roleStore.role;
+    if (!role.name) {
         await roleStore.getPermission(token.username!)
     }
-    console.log('pages=============')
-    console.log(role?.permissions?.pages)
+    
 
     // 没有权限， 统一跳转到 403 页面。从安全层面上也要这么做， 防止路径遍历猜测 
     if (role?.permissions?.pages?.includes(to.meta.permission!)) {

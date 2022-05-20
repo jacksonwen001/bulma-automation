@@ -18,7 +18,6 @@ const useUserStore = defineStore('useUserStore', {
         registerDate: undefined, 
         lastLogin: undefined, 
         role: undefined,
-       
     }), 
    
     actions: {

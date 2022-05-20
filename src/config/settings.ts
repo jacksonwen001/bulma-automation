@@ -1,6 +1,6 @@
 const settings = {
     keepMaxNum: 10, 
-    whiteUrls:  ['/login', '/404', '/500', '/403'], 
+    whiteUrls:  ['/404', '/500', '/403'], 
     errorCodes: [4001,]
 }
 

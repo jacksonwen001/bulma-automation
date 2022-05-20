@@ -4,6 +4,10 @@ import appRoutes from "./routes";
 
 const constantUrl = [
     {
+        path: '/',
+        redirect: '/login'
+    }, 
+    {
         path: '/login', 
         name: 'Login', 
         component: () => import('@/views/login/Index.vue')
