@@ -28,10 +28,10 @@ const tabStore = useTabStore()
 const clickMenu = (item: any) => {
     console.log(item);
 }
-listenerRouteChange((newRoute) => {
-    const key = newRoute.matched[2]?.name as string;
-    selectedKey.value = [key]
-})
+// listenerRouteChange((newRoute) => {
+//     const key = newRoute.matched[2]?.name as string;
+//     selectedKey.value = [key]
+// })
 </script>
 <style scoped lang="less">
 .menu {

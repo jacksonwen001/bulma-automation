@@ -3,12 +3,13 @@ import { defineStore } from "pinia";
 import type { TabBarState, TagProps } from './types'
 
 const formatTag = (route: RouteLocationNormalized): TagProps => {
-    const { name, meta, fullPath, query} = route; 
+    const { name, meta, fullPath, query, params} = route; 
     return {
         title: meta.title || '', 
         name: String(name), 
         fullPath, 
-        query
+        query, 
+        params
     }
 }
 const useTabStore = defineStore('tabBar', {

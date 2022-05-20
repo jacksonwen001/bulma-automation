@@ -5,7 +5,8 @@ export interface TagProps {
     title: string, 
     name: string, 
     fullPath: string,  
-    query?: any
+    query?: any, 
+    params?:any
 }
 
 

@@ -52,9 +52,11 @@ router.beforeEach(async (to, from, next) => {
         const menuStore = useMenuStore()
         const allMenus = menuStore.getMenus(appRoutes, role.permissions)
         menuStore.setMenus(allMenus)
+        
+        console.log("========= 展示 to =========")
+        console.log(to)
+        console.log("========展示结束========")
         setRouteEmitter(to)
-
-        // console.log(menuStore.menuList)
         return next()
     } else {
         return next({
